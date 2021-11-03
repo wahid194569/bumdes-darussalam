@@ -31,8 +31,8 @@
 
     <section class="ftco-section contact-section">
       <div class="container mt-5">
-        <div class="row block-9">
-					<div class="col-md-4 contact-info ftco-animate">
+        <div class="row block-9 justify-content-center">
+					<div class="col-md-6 contact-info ftco-animate">
 						<div class="row">
 							<div class="col-md-12 mb-4">
 	              <h2 class="h4">Contact Information</h2>
@@ -51,7 +51,7 @@
 	            </div>
 						</div>
 					</div>
-					<div class="col-md-1"></div>
+					<!-- <div class="col-md-1"></div>
           <div class="col-md-6 ftco-animate">
             <form action="#" class="contact-form">
             	<div class="row">
@@ -76,7 +76,7 @@
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
               </div>
             </form>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>

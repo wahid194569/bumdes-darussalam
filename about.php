@@ -29,7 +29,7 @@
       </div>
     </section>
 
-    <section class="ftco-about d-md-flex">
+    <section class="ftco-about d-md-flex" id="about">
     	<div class="one-half img" style="background-image: url(images/about.jpg);"></div>
     	<div class="one-half ftco-animate">
     		<div class="overlap">
@@ -126,7 +126,7 @@
 	    </div>
 	  </section>
 
-    <section class="ftco-section">
+<!--     <section class="ftco-section">
     	<div class="container">
     		<div class="row align-items-center">
     			<div class="col-md-6 pr-md-5">
@@ -163,7 +163,7 @@
     			</div>
     		</div>
     	</div>
-    </section>
+    </section> -->
 
     <section class="ftco-counter ftco-bg-dark img" id="section-counter" style="background-image: url(images/bg_2.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
