@@ -13,10 +13,16 @@ class admin extends Model
     protected $primaryKey = 'id_admin';
     public $timestamps = false;
 
-    protected $fillable = [
-        'id_admin',
-        'nama',
-        'email',
-        'password'
-    ];
+
+    // // bedanya fill dan guard
+    // // yang boleh diisi secara massal
+    // protected $fillable = [
+    //     'id_admin',
+    //     'nama',
+    //     'email',
+    //     'password'
+    // ];
+
+    //  // yang tidak boleh diisi secara massal
+    protected $guarded = ['id_admin'];
 }

@@ -40,7 +40,7 @@ Route::get('/form', function () {
 });
 
 Route::get('login', [AdminController::class, 'vlogin']);
-Route::post('login', [AdminController::class, 'validateLogin']);
+Route::post('login', [AdminController::class, 'authenticate']);
 
 Route::get('register', [AdminController::class, 'form']); 
 Route::post('register', [AdminController::class, 'store']); 

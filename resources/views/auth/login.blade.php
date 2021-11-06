@@ -31,9 +31,17 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
                 @if(session()->has('success') )
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                   {{ session('success') }}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+
+                @if(session()->has('loginError') )
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ session('loginError') }}
                   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
@@ -54,13 +62,13 @@
                     <p class="text-center small">Masukkan Email dan Password Untuk Login</p>
                   </div>
 
-                    <form method="POST" action="/login" class="row g-3 needs-validation">
+                    <form method="POST" action="/login" class="row g-3">
                         @csrf
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingEmail" value="{{ old('email') }}" placeholder="Email" required>
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="floatingEmail" value="{{ old('email') }}" placeholder="Email" autofocus required>
                                 <label for="floatingEmail">Email</label>
-                                @error('nama')
+                                @error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>
@@ -90,7 +98,7 @@
                           <button class="btn btn-primary w-100" type="submit">Login</button>
                         </div>
                         <div class="col-12">
-                          <p class="small mb-0">Tidak punya akun? <a href="register">Buat sebuah akun</a></p>
+                          <p class="small mb-0 text-center">Tidak punya akun? <a href="register">Buat sebuah akun</a></p>
                         </div>
                     </form>
 
