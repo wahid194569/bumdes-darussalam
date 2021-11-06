@@ -35,11 +35,14 @@ Route::get('/cart', function () {
 Route::get('/admin', function () {
     return view('dashtablesdata');
 });
-Route::get('/form', function () {
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/dashform', function () {
     return view('dashform');
 });
 
-Route::get('login', [AdminController::class, 'vlogin']);
+Route::get('login', [AdminController::class, 'login'])->middleware('guest');
 Route::post('login', [AdminController::class, 'authenticate']);
 
 Route::get('register', [AdminController::class, 'form']); 

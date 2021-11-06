@@ -10,7 +10,7 @@
   </head>
   <body>
 
-  	<?php require_once('komponen/headercontact.php'); ?>
+  	@include('komponen.headercontact')
 
     <section class="home-slider owl-carousel">
 
@@ -57,11 +57,11 @@
 
     <!-- <div id="map"></div> -->
 
-    <?php require_once('komponen/footer.php'); ?>
+    @include('komponen.footer')
     
   
 
-    <?php require_once('komponen/loader.php'); ?>
+    @include('komponen.loader')
 
 
   <?php require_once('js/phpjs.php'); ?>

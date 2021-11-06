@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
                 [
                     'nama' => 'admindef',
                     'email' => 'admindef@admin.com',
-                    'password' => hash("sha256", "admin"),
+                    'password' => bcrypt("admin"),
                 ]
             ]);
     }

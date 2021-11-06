@@ -12,7 +12,7 @@
   </head>
   <body>
   	
-  	<?php require_once('komponen/header.php'); ?>
+  	@include('komponen.header')
 
     <section class="home-slider owl-carousel">
       <div class="slider-item" style="background-image: url(https://images.unsplash.com/photo-1515694590185-73647ba02c10?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80);">
@@ -213,11 +213,11 @@
     	</div>
     </section>
 
-    <?php require_once('komponen/footer.php'); ?>
+    @include('komponen.footer')
     
   
 
-  	<?php require_once('komponen/loader.php'); ?>
+  	@include('komponen.loader')
 
 
   <?php require_once('js/phpjs.php'); ?>

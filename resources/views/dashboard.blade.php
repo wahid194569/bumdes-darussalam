@@ -25,15 +25,11 @@
 <body>
 
   <!-- ======= Header ======= -->
-  @php
-  require_once('komponen/admin/header.php')
-  @endphp
+  @include('komponen.admin.header')
 
 
   <!-- ======= Sidebar ======= -->
-  @php
-  require_once('komponen/admin/sidebar.php')
-  @endphp
+  @include('komponen.admin.sidebar')
 
   <main id="main" class="main">
 
@@ -120,9 +116,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  @php
-  require_once('komponen/admin/sidebar.php')
-  @endphp
+  @include('komponen.admin.footer')
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

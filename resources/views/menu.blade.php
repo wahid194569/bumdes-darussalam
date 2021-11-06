@@ -10,7 +10,7 @@
   </head>
   <body>
 
-  	<?php require_once('komponen/headermenu.php'); ?>
+  	@include('komponen.headermenu')
 
     <section class="home-slider owl-carousel">
 
@@ -141,11 +141,11 @@
     	</div>
     </section>
 
-    <?php require_once('komponen/footer.php'); ?>
+    @include('komponen.footer')
     
   
 
-  	<?php require_once('komponen/loader.php'); ?>
+  	@include('komponen.loader')
 
 
   <?php require_once('js/phpjs.php'); ?>

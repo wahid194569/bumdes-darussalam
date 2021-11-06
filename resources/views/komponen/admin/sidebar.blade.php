@@ -8,12 +8,12 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
-            <a href="admin">
+            <a href="dashboard">
               <i class="bi bi-circle"></i><span>Data Tables</span>
             </a>
           </li>
           <li>
-            <a href="form">
+            <a href="dashform">
               <i class="bi bi-circle"></i><span>Form Layouts</span>
             </a>
           </li>

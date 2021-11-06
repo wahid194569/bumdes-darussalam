@@ -10,7 +10,7 @@ use App\Models\Admin;
 
 class AdminController extends Controller
 {
-    public function vlogin()
+    public function login()
     {
         return view('auth.login');
     }
@@ -22,12 +22,14 @@ class AdminController extends Controller
             'password' => 'required'
         ]);
 
+        // $credentials['password'] = hash("sha256", $credentials['password']);
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
 
-        return back()->with('loginError', 'Gagal login!');
+        return back()->with('loginError', 'Login Gagal!');
     }
 
     public function form()
@@ -48,7 +50,8 @@ class AdminController extends Controller
 
         unset($validatedData['password_confirmation']);
 
-        $validatedData['password'] = hash("sha256", $validatedData['password']);
+        $validatedData['password'] = bcrypt($validatedData['password']);
+        // $validatedData['password'] = hash("sha256", $validatedData['password']); // gk cocok make sha256 untuk password laravel, mabuk
 
         DB::table('admin')->insert($validatedData);
 
