@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +22,32 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/menu', function () {
-    return view('menu');
-});
+Route::get('/menu', [BarangController::class, 'tampilkan'] );
+// Route::get('/menu', function () {
+//     return view('menu');
+// });
 Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/cart', function () {
     return view('cart');
 });
+Route::get('/admin', function () {
+    return view('dashtablesdata');
+});
+Route::get('/form', function () {
+    return view('dashform');
+});
+
+Route::get('login', [AdminController::class, 'vlogin']);
+Route::post('login', [AdminController::class, 'validateLogin']);
+
+Route::get('register', [AdminController::class, 'form']); 
+Route::post('register', [AdminController::class, 'store']); 
+
+// Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
+// Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+// Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
+// Route::get('register', [CustomAuthController::class, 'registration'])->name('register-user');
+// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
+// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');

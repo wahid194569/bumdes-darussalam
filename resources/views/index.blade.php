@@ -65,7 +65,7 @@
 
     <section class="ftco-about d-md-flex" id="about">
 
-    	<div class="one-half img" style="background-image: url(https://images.unsplash.com/photo-1577968897411-6973c2e2452a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80);">
+    	<div class="one-half img" style="background-image: url(https://images.unsplash.com/photo-1561113825-49e39f7e1f8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80);">
     		
     	</div>
 
