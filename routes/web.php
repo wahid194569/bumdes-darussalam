@@ -23,9 +23,8 @@ Route::get('/about', function () {
     return view('about');
 });
 Route::get('/menu', [BarangController::class, 'tampilkan'] );
-// Route::get('/menu', function () {
-//     return view('menu');
-// });
+Route::post('/menu', [BarangController::class, 'chat'] );
+
 Route::get('/contact', function () {
     return view('contact');
 });

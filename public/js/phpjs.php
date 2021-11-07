@@ -16,5 +16,4 @@
 <script src="js/google-map.js"></script>
 <script src="js/main.js"></script>
 <!-- Random me -->
-<script src="/js/jquery.min.js"></script> 
 <script src="/js/minified/jquery.malihu.PageScroll2id.js"></script>

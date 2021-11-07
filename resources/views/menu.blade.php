@@ -33,43 +33,75 @@
 
     <section class="ftco-section" id="list-menu">
     	<div class="container">
-        <div class="row">
-        	<div class="col-md-6 mb-5 pb-3">
-        		<h3 class="mb-5 heading-pricing ftco-animate">Starter</h3>
-						@foreach ($barang1 as $data)
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>{{ $data->nama_produk }}</span></h3>
-	        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>{{ $data->detail_komposisi }}</p>
-	        			</div>
-	        		</div>
-        		</div>
-        		@endforeach
-        	</div>
+    		<form method="POST" action="menu">
+    			@csrf
+    			<div class="row">
+	        	<div class="col-md-6 mb-5 pb-3">
+	        		<h3 class="mb-5 heading-pricing ftco-animate">Starter</h3>
+							@php
+	        		$i = 1;
+	        		@endphp
+							@foreach ($barang1 as $data)
+	        		<div class="pricing-entry d-flex ftco-animate">
+	        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
+	        			<div class="desc pl-3">
+		        			<div class="d-flex text align-items-center">
+		        				<h3><span>{{ $data->nama_produk }}</span></h3>
+		        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
+		        			</div>
+		        			<div class="d-block">
+		        				<p>{{ $data->detail_komposisi }}</p>
+		        			</div>
 
-        	<div class="col-md-6 mb-5 pb-3">
-        		<h3 class="mb-5 heading-pricing ftco-animate">Main Dish</h3>
-        		@foreach ($barang2 as $data)
-        		<div class="pricing-entry d-flex ftco-animate">
-        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
-        			<div class="desc pl-3">
-	        			<div class="d-flex text align-items-center">
-	        				<h3><span>{{ $data->nama_produk }}</span></h3>
-	        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
-	        			</div>
-	        			<div class="d-block">
-	        				<p>{{ $data->detail_komposisi }}</p>
-	        			</div>
+		        			<div class="custom-control custom-checkbox">
+									  <input type="checkbox" name="ch{{$i}}" value="{{ $data->nama_produk }}" class="custom-control-input" id="customCheck{{$i}}">
+									  <label class="custom-control-label" for="customCheck{{$i}}">Beli produk ini</label>
+									</div>
+
+									@php
+									$i++;
+									@endphp
+
+		        		</div>
 	        		</div>
-        		</div>
-        		@endforeach
-        	</div>
-        </div>
+	        		@endforeach
+	        	</div>
+
+	        	<div class="col-md-6 mb-5 pb-3">
+	        		<h3 class="mb-5 heading-pricing ftco-animate">Main Dish</h3>
+	        		@php
+	        		$i = 100;
+	        		@endphp
+	        		@foreach ($barang2 as $data)
+	        		<div class="pricing-entry d-flex ftco-animate">
+	        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
+	        			<div class="desc pl-3">
+		        			<div class="d-flex text align-items-center">
+		        				<h3><span>{{ $data->nama_produk }}</span></h3>
+		        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
+		        			</div>
+		        			<div class="d-block">
+		        				<p>{{ $data->detail_komposisi }}</p>
+		        			</div>
+
+		        			<div class="custom-control custom-checkbox">
+									  <input type="checkbox" name="ch{{$i}}" value="{{ $data->nama_produk }}" class="custom-control-input" id="customCheck{{$i}}">
+									  <label class="custom-control-label" for="customCheck{{$i}}">Beli produk ini</label>
+									</div>
+
+									@php
+									$i++;
+									@endphp
+
+		        		</div>
+	        		</div>
+	        		@endforeach
+	        	</div>
+
+	        	<input type="submit" value="Hubungi Penjual" name="submit" class="btn btn-primary mx-auto d-block">
+	        </div>
+    		</form>
+        
     	</div>
     </section>
 
