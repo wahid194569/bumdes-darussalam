@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image: url(https://images.unsplash.com/photo-1512491289751-2ab5001e9b48?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80);">
+      <div class="slider-item" style="background-image: url(https://image.freepik.com/free-photo/flat-lay-tray-with-coffee-cup-cinnamon-sticks_23-2148808586.jpg);">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">

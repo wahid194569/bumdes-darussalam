@@ -24,18 +24,18 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
+        <a class="nav-link collapsed" href="register">
           <i class="bi bi-card-list"></i>
-          <span>Register</span>
+          <span>Buat Akun Admin Lain</span>
         </a>
       </li><!-- End Register Page Nav -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Login</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li> --><!-- End Login Page Nav -->
 
     </ul>
 

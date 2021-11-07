@@ -14,7 +14,7 @@
 
     <section class="home-slider owl-carousel">
 
-      <div class="slider-item" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+      <div class="slider-item" style="background-image: url(https://images.unsplash.com/photo-1515694590185-73647ba02c10?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80);" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row slider-text justify-content-center align-items-center">
@@ -38,7 +38,17 @@
 	          <h2 class="mb-4">Our Story</h2>
 	        </div>
 	        <div>
-	  				<p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+	  				<p>Kopi seputaran perkebunan dan hutan Lombok Utara. Racikan dengan menggunakan pola fermentasi dan olahan tradisonal untuk keseimbangan varian rasa ada original, coklat, rempah dan khas kopi jantan untuk laki-laki.<br>
+
+
+ROASTING<br>
+Kopi rimba Rinjani di roasting ke tingkat medium untuk mempertahankan karakter rasa asli kopi dan dipanggang hingga dark.
+Dan disangrai secara manual untuk mempertahankan rasa tadisional. <br>
+
+PROFIL RASA<br>
+Kehasan Lombok disamping pedas adalah kopi robustanya memiliki rasa dan aroma kopi yang sangat kuat, sangat cocok disajikan sebagai minuman kopi para penikmat, torisem, parlete dan keluarga.<br>
+karena rasa kopinya khas, dan karakter rasanya dominan dan juga tingkat keasamannya sangat rendah, sehingga sangat nikmat rasanya, apalagi dipadu sensasi original, coklat, jahe, rempah, madu dan sensasi primitiv dengan campur beras.
+Kopi Arabica di dataran tinggi gunung Rinjani pun menambah kehasan dan sangat monumental dengan tingkat fermentasi delapan jam sampai tigapuluh enam jam. </p>
 	  			</div>
   			</div>
     	</div>

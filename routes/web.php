@@ -31,9 +31,6 @@ Route::get('/contact', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
-Route::get('/admin', function () {
-    return view('dashtablesdata');
-});
 Route::get('/dashboard', function () {
     return view('dashboard');
 });

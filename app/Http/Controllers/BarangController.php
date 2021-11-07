@@ -19,13 +19,17 @@ class BarangController extends Controller
         $pesanan = $request->all();
         unset($pesanan["_token"]);
         unset($pesanan["submit"]);
-        $formatChat = "Hi, saya ingin membeli produk: ";
+        $formatChat = "Hai%2C%20saya%20ingin%20membeli%20produk%3A%20%0A";
 
         foreach ($pesanan as $pesan) {
-            $formatChat .= $pesan . ", ";
+            $formatChat .= "-%20" . ucwords($pesan) . "%2C%20Sebanyak%3A%20%0A";
         }
 
-        return $formatChat;
+        unset($pesanan);
+        $formatChat .= "%0AApakah%20tersedia%3F";
+
+        $formatChat = str_replace(" ","%20", $formatChat);
+        return redirect("https://wa.me/6283832581088?text=$formatChat");
         
     }
 }
