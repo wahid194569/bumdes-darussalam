@@ -17,3 +17,9 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+  <script type="text/javascript">
+      function confirm_delete() {
+        return confirm("Anda Yakin?");
+      }
+  </script>

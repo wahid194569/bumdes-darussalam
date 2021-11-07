@@ -9,12 +9,12 @@
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
             <a href="dashboard">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+              <i class="bi bi-circle"></i><span>Tabel Barang</span>
             </a>
           </li>
           <li>
             <a href="dashform">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+              <i class="bi bi-circle"></i><span>Tambah Produk</span>
             </a>
           </li>
         </ul>
@@ -24,18 +24,18 @@
 
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="register">
+        <a class="nav-link collapsed" href="/register">
           <i class="bi bi-card-list"></i>
-          <span>Buat Akun Admin Lain</span>
+          <span>Buat Akun</span>
         </a>
       </li><!-- End Register Page Nav -->
 
-      <!-- <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="/logout">
           <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
+          <span>Logout</span>
         </a>
-      </li> --><!-- End Login Page Nav -->
+      </li><!-- End Login Page Nav -->
 
     </ul>
 

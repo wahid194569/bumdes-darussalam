@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\CustomAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +16,7 @@ use App\Http\Controllers\CustomAuthController;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index')->with('index', ' ');
 });
 Route::get('/about', function () {
     return view('about');
@@ -28,25 +27,17 @@ Route::post('/menu', [BarangController::class, 'chat'] );
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/cart', function () {
-    return view('cart');
-});
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
+Route::get('/dashboard', [BarangController::class, 'dashboard'])->middleware('auth');
+
 Route::get('/dashform', function () {
     return view('dashform');
-});
+})->middleware('auth');
 
-Route::get('login', [AdminController::class, 'login'])->middleware('guest');
+Route::get('login', [AdminController::class, 'login'])->name('login')->middleware('guest');
 Route::post('login', [AdminController::class, 'authenticate']);
 
-Route::get('register', [AdminController::class, 'form']); 
-Route::post('register', [AdminController::class, 'store']); 
+Route::get('logout', [AdminController::class, 'logout'])->name('logout')->middleware('auth');
 
-// Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
-// Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-// Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
-// Route::get('register', [CustomAuthController::class, 'registration'])->name('register-user');
-// Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom'); 
-// Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+Route::get('register', [AdminController::class, 'form']); 
+Route::post('register', [AdminController::class, 'store']);
