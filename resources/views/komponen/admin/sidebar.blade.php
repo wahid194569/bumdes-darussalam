@@ -4,12 +4,12 @@
 
       <li class="nav-item">
         <a class="nav-link " data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Tabel</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
           <li>
             <a href="dashboard">
-              <i class="bi bi-circle"></i><span>Tabel Barang</span>
+              <i class="bi bi-circle"></i><span>Tabel Produk</span>
             </a>
           </li>
           <li>

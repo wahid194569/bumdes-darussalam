@@ -7929,7 +7929,7 @@ h1, h2, h3, h4, h5,
     width: calc(100% - 60px); }
     .pricing-entry .desc p {
       margin-bottom: 0;
-      min-height: 54px; }
+      min-height: 81px; }
   .pricing-entry .text {
     width: 100%;
     display: block;

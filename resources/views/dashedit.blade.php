@@ -59,8 +59,8 @@
                   <div class="col-12">
                     <select class="form-select" aria-label="Default select example" name="tipe_produk" required>
                       <option selected value="" placeholder="tipe" disabled>Pilih Tipe Kopi*</option>
-                      @foreach($tipe_produk as $tipe)
-                      <option value="{{ $tipe->id_tipe }}">{{ ucwords($tipe->nama_tipe) }}</option>
+                      @foreach($dedit as $dedit)
+                      <option value="{{ $dedit->id_tipe }}">{{ ucwords($dedit->nama_tipe) }}</option>
                       @endforeach
                     </select>
                     @error('tipe_produk')
@@ -120,6 +120,12 @@
 
                 <div class="col-12">
                   <label for="formFile" class="col-sm-2 col-form-label">Upload Gambar</label>
+                  <?php if (!is_null($foto) && !empty($foto)) {  ?>
+                    <div class="form-group mb-2">
+                      <img src="<?=$foto?>" class="preview">
+                      <a href="hapus_foto.php?id_barang=<?=$id_barang?>">Hapus Foto</a>
+                    </div>
+                  <?php } ?>
                   <div class="col-12">
                     <input class="form-control @error('foto_produk') is-invalid @enderror" type="file" id="formFile" name="foto_produk">
                     @error('foto_produk')

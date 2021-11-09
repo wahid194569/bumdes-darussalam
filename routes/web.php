@@ -30,9 +30,13 @@ Route::get('/contact', function () {
 
 Route::get('/dashboard', [BarangController::class, 'dashboard'])->middleware('auth');
 
-Route::get('/dashform', function () {
-    return view('dashform');
-})->middleware('auth');
+Route::get('/dashform', [BarangController::class, 'dashform'])->middleware('auth');
+Route::post('/dashform', [BarangController::class, 'inputform'])->middleware('auth');
+
+Route::get('/delete/{id}', [BarangController::class, 'delete'])->middleware('auth');
+
+Route::get('/dashedit/{id}', [BarangController::class, 'dedit'])->middleware('auth');
+// Route::get('/dashedit/{id}', [BarangController::class, 'delete'])->middleware('auth');
 
 Route::get('login', [AdminController::class, 'login'])->name('login')->middleware('guest');
 Route::post('login', [AdminController::class, 'authenticate']);

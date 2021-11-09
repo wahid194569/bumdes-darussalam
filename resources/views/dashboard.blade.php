@@ -34,7 +34,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Tabel Barang</h1>
+      <h1>Tabel Produk</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -47,6 +47,19 @@
     <section class="section">
       <div class="row">
         <div class="col-lg-12">
+          @if(session()->has('upSuccess') )
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('upSuccess') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+
+          @if(session()->has('delSuccess') )
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('delSuccess') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
 
           <div class="card">
             <div class="card-body">
@@ -60,8 +73,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Tipe Produk</th>
                     <th scope="col">Produk</th>
-                    <th scope="col">Detail Komposisi</th>
-                    <th scope="col">Harga Produk</th>
+                    <th scope="col">Detail</th>
+                    <th scope="col">Harga</th>
                     <th scope="col">Ukuran Kemasan</th>
                     <th scope="col">Aksi</th>
                   </tr>
@@ -71,14 +84,18 @@
                   <tr>
                     <th scope="row">{{$key+=1}}</th>
                     <td>{{$produk->nama_tipe}}</td>
-                    <td>{{$produk->nama_produk}}</td>
+                    @if($produk->foto_produk)
+                    <td><img src=" {{ asset('storage/' . $produk->foto_produk) }} " style="width: 100px; object-fit: cover; border-radius: 50%;"> <br> {{$produk->nama_produk}}</td>
+                    @else
+                    <td><img src="https://images.unsplash.com/photo-1513267126281-013f1948f7d1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80" style="width: 100px; object-fit: cover; border-radius: 50%;"> <br> {{$produk->nama_produk}}</td>
+                    @endif
                     <td>{{$produk->detail_komposisi}}</td>
                     <td>{{$produk->harga_produk}}</td>
                     <td>{{$produk->ukuran_kemasan}}</td>
                     <td>
                       <a href="#">Edit</a>
                       |
-                      <a href="#" onclick="return confirm_delete()">Delete</a>
+                      <a href="/delete/{{$produk->id}}" onclick="return confirm_delete()">Delete</a>
                     </td>
                   </tr>
                   @endforeach
