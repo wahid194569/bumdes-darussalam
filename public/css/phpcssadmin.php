@@ -23,3 +23,11 @@
         return confirm("Anda Yakin?");
       }
   </script>
+  <style type="text/css">
+    .form-group .preview{
+      height: 120px;
+      width: 120px;
+      object-fit: cover;
+      /*border-radius: 50%;*/
+    } 
+  </style>

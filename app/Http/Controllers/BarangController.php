@@ -72,9 +72,6 @@ class BarangController extends Controller
 
     public function delete($id)
     {
-
-        // $pilih = DB::table('barang')->where('id', $id)->get();
-
         $pilih2 = DB::table('barang')
             ->where('id', $id)
             ->value('foto_produk');
@@ -90,19 +87,77 @@ class BarangController extends Controller
         return back()->with('delSuccess', 'Produk berhasil dihapus!');
     }
 
-    public function dedit($id)
+    public function dedit(Request $request)
     {
-
-        // $pilih2 = DB::table('barang')
-        //     ->where('id', $id)
-        //     ->value('foto_produk');
-        
-        // unset($pilih2);
-
         $dedit = DB::table('barang')
-            ->where('id', $id)
+            ->where('id', $request->id)
+            ->first();
+
+        $selectors = DB::table('tipe_produk')
             ->get();
 
-        return view('dashedit', ['dedit' => $dedit]);
+        return view('dashedit', ['dedit' => $dedit, 'selectors' => $selectors ])->with('asli', '');
+    }
+
+    public function ledit(Request $request)
+    {
+
+        if ($request->file('foto_produk')) {
+            $validatedData = $request->validate([
+                'id' => 'required',
+                'tipe_produk' => 'required',
+                'nama_produk' => 'required|max:50',
+                'detail_komposisi' => 'nullable|max:150',
+                'harga_produk' => 'required|numeric|max:999999',
+                'ukuran_kemasan' => 'required|max:6',
+                'foto_produk' => 'image|file|max:1024',
+            ]);
+
+            $pilihf = DB::table('barang')
+                ->where('id', $validatedData['id'])
+                ->value('foto_produk');
+
+            Storage::disk('public')->delete($pilihf);
+            
+            unset($pilihf);
+
+            if ($request->file('foto_produk')) {
+                $validatedData['foto_produk'] = $request->file('foto_produk')->store('fotoProduk');
+            }
+
+            $insert = DB::table('barang')
+                ->where('id', $validatedData['id'])
+                ->update([
+                    'tipe_produk' => $validatedData['tipe_produk'],
+                    'nama_produk' => $validatedData['nama_produk'],
+                    'detail_komposisi' => $validatedData['detail_komposisi'],
+                    'harga_produk' => $validatedData['harga_produk'],
+                    'ukuran_kemasan' => $validatedData['ukuran_kemasan'],
+                    'foto_produk' => $validatedData['foto_produk'],
+                ]);
+
+        }else{
+            $validatedData = $request->validate([
+                'id' => 'required',
+                'tipe_produk' => 'required',
+                'nama_produk' => 'required|max:50',
+                'detail_komposisi' => 'nullable|max:150',
+                'harga_produk' => 'required|numeric|max:999999',
+                'ukuran_kemasan' => 'required|max:6'
+            ]);
+
+            $insert = DB::table('barang')
+                ->where('id', $validatedData['id'])
+                ->update([
+                    'tipe_produk' => $validatedData['tipe_produk'],
+                    'nama_produk' => $validatedData['nama_produk'],
+                    'detail_komposisi' => $validatedData['detail_komposisi'],
+                    'harga_produk' => $validatedData['harga_produk'],
+                    'ukuran_kemasan' => $validatedData['ukuran_kemasan'],
+            ]);
+        }
+
+
+        return $this->dashboard();
     }
 }

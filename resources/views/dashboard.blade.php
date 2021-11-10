@@ -93,7 +93,11 @@
                     <td>{{$produk->harga_produk}}</td>
                     <td>{{$produk->ukuran_kemasan}}</td>
                     <td>
-                      <a href="#">Edit</a>
+                      <form method="POST" action="dashedit">
+                        @csrf
+                        <input type="hidden" name="id" value="{{$produk->id}}">
+                        <a onclick="this.parentNode.submit();" style="color: blue;">Edit</a>
+                      </form>
                       |
                       <a href="/delete/{{$produk->id}}" onclick="return confirm_delete()">Delete</a>
                     </td>

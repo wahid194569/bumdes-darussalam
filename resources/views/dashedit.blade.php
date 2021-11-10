@@ -34,7 +34,7 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Tambah Produk</h1>
+      <h1>Edit Produk</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -52,15 +52,26 @@
               <h5 class="card-title">Floating labels Form</h5>
 
               <!-- Floating Labels Form -->
-              <form class="row g-3" method="POST" action="dashform" enctype="multipart/form-data">
+              <form class="row g-3" method="POST" action="dashledit" enctype="multipart/form-data">
                 @csrf
+                <div class="col-12">
+                  <div class="form-floating">
+                    <input type="number" name="id" class="form-control @error('id') is-invalid @enderror" id="id" placeholder="ID"  value="{{ $dedit->id }}" readonly >
+                    <label for="id">ID</label>
+                    @error('id')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                    @enderror
+                  </div>
+                </div>
                 <div class="col-12">
                   <label class=" col-form-label">Pilih Tipe Produk</label>
                   <div class="col-12">
                     <select class="form-select" aria-label="Default select example" name="tipe_produk" required>
                       <option selected value="" placeholder="tipe" disabled>Pilih Tipe Kopi*</option>
-                      @foreach($dedit as $dedit)
-                      <option value="{{ $dedit->id_tipe }}">{{ ucwords($dedit->nama_tipe) }}</option>
+                      @foreach($selectors as $tipe)
+                        <option value="{{ $tipe->id_tipe }}" @if($tipe->id_tipe == $dedit->tipe_produk) selected @endif>{{ ucwords($tipe->nama_tipe) }}</option>
                       @endforeach
                     </select>
                     @error('tipe_produk')
@@ -72,7 +83,7 @@
                 </div>
                 <div class="col-12">
                   <div class="form-floating">
-                    <input type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror " id="floatingnama_produk" placeholder="Nama Produk*" required value="{{ old('nama_produk') }}" >
+                    <input type="text" name="nama_produk" class="form-control @error('nama_produk') is-invalid @enderror " id="floatingnama_produk" placeholder="Nama Produk*" required value="{{ $dedit->nama_produk }}" >
                     <label for="floatingnama_produk">Nama Produk*</label>
                     @error('nama_produk')
                       <div class="invalid-feedback">
@@ -84,7 +95,7 @@
 
                 <div class="col-12">
                   <div class="form-floating">
-                    <input type="textarea" name="detail_komposisi" class="form-control @error('detail_komposisi') is-invalid @enderror" id="floatingdetail_komposisi" placeholder="Detail Produk" maxlength="150" style="height: 100px;" value="{{ old('detail_komposisi') }}">
+                    <input type="textarea" name="detail_komposisi" class="form-control @error('detail_komposisi') is-invalid @enderror" id="floatingdetail_komposisi" placeholder="Detail Produk" maxlength="150" style="height: 100px;" value="{{ $dedit->detail_komposisi }}">
                     <label for="floatingdetail_komposisi">Detail Produk</label>
                     @error('detail_komposisi')
                       <div class="invalid-feedback">
@@ -96,7 +107,7 @@
 
                 <div class="col-12">
                   <div class="form-floating">
-                    <input type="number" name="harga_produk" class="form-control @error('harga_produk') is-invalid @enderror" id="harga_produk" placeholder="Harga Produk*" required value="{{ old('harga_produk') }}">
+                    <input type="number" name="harga_produk" class="form-control @error('harga_produk') is-invalid @enderror" id="harga_produk" placeholder="Harga Produk*" required value="{{ $dedit->harga_produk }}">
                     <label for="harga_produk">Harga Produk*</label>
                     @error('harga_produk')
                       <div class="invalid-feedback">
@@ -108,7 +119,7 @@
 
                 <div class="col-12">
                   <div class="form-floating">
-                    <input type="text" name="ukuran_kemasan" class="form-control @error('ukuran_kemasan') is-invalid @enderror" id="ukuran_kemasan" placeholder="Ukuran Kemasan*" required value="{{ old('ukuran_kemasan') }}">
+                    <input type="text" name="ukuran_kemasan" class="form-control @error('ukuran_kemasan') is-invalid @enderror" id="ukuran_kemasan" placeholder="Ukuran Kemasan*" required value="{{ $dedit->ukuran_kemasan }}">
                     <label for="ukuran_kemasan">Ukuran Kemasan*</label>
                     @error('ukuran_kemasan')
                       <div class="invalid-feedback">
@@ -118,14 +129,13 @@
                   </div>
                 </div>
 
+                @if(!is_null($dedit->foto_produk) && !empty($dedit->foto_produk))
+                  <div class="form-group mb-2">
+                    <img src="storage/{{ $dedit->foto_produk }}" class="preview">
+                  </div>
+                @endif
                 <div class="col-12">
                   <label for="formFile" class="col-sm-2 col-form-label">Upload Gambar</label>
-                  <?php if (!is_null($foto) && !empty($foto)) {  ?>
-                    <div class="form-group mb-2">
-                      <img src="<?=$foto?>" class="preview">
-                      <a href="hapus_foto.php?id_barang=<?=$id_barang?>">Hapus Foto</a>
-                    </div>
-                  <?php } ?>
                   <div class="col-12">
                     <input class="form-control @error('foto_produk') is-invalid @enderror" type="file" id="formFile" name="foto_produk">
                     @error('foto_produk')

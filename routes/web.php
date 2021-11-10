@@ -35,7 +35,8 @@ Route::post('/dashform', [BarangController::class, 'inputform'])->middleware('au
 
 Route::get('/delete/{id}', [BarangController::class, 'delete'])->middleware('auth');
 
-Route::get('/dashedit/{id}', [BarangController::class, 'dedit'])->middleware('auth');
+Route::post('/dashedit/', [BarangController::class, 'dedit'])->middleware('auth');
+Route::post('/dashledit/', [BarangController::class, 'ledit'])->middleware('auth');
 // Route::get('/dashedit/{id}', [BarangController::class, 'delete'])->middleware('auth');
 
 Route::get('login', [AdminController::class, 'login'])->name('login')->middleware('guest');
