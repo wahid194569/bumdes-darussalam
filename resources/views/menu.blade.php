@@ -49,7 +49,11 @@
 	        		@endphp
 							@foreach ($barang1 as $data)
 	        		<div class="pricing-entry d-flex ftco-animate">
+	        			@if($data->foto_produk != null)
+	        			<div class="img" style="background-image: url({{$data->foto_produk}});"></div>
+	        			@else
 	        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
+	        			@endif
 	        			<div class="desc pl-3">
 		        			<div class="d-flex text align-items-center">
 		        				<h3><span>{{ ucwords($data->nama_produk) }}</span></h3>
@@ -80,7 +84,11 @@
 	        		@endphp
 	        		@foreach ($barang2 as $data)
 	        		<div class="pricing-entry d-flex ftco-animate">
+	        			@if($data->foto_produk != null)
+	        			<div class="img" style="background-image: url({{$data->foto_produk}});"></div>
+	        			@else
 	        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
+	        			@endif
 	        			<div class="desc pl-3">
 		        			<div class="d-flex text align-items-center">
 		        				<h3><span>{{ ucwords($data->nama_produk) }}</span></h3>
