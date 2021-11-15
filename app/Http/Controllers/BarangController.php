@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Storage;
 class BarangController extends Controller
 {
     public function tampilkan(){
-        $barang1 = DB::table('barang')->where('tipe_produk', '1')->get();
-        $barang2 = DB::table('barang')->where('tipe_produk', '2')->get();
-        return view('menu', ['barang1' => $barang1,'barang2' => $barang2])->with('menu', '');
+        $barang = DB::table('barang')->get();
+        $tipeA = DB::table('tipe_produk')->get();
+
+        return view('menu', ['barang' => $barang, 'tipeA' => $tipeA]);
     }
 
     public function chat(Request $request)
@@ -44,6 +45,14 @@ class BarangController extends Controller
         return view('dashboard', ['barang' => $barang]);
     }
 
+    public function dashtipe()
+    {
+        $tipes = DB::table('tipe_produk')
+            ->get();
+
+        return view('dashtipe', ['tipes' => $tipes]);
+    }
+
     public function dashform()
     {
         $tipe_produk = DB::table('tipe_produk')->get();
@@ -58,7 +67,7 @@ class BarangController extends Controller
             'detail_komposisi' => 'nullable|max:150',
             'harga_produk' => 'required|numeric|max:999999',
             'ukuran_kemasan' => 'required|max:6',
-            'foto_produk' => 'image|file|max:1024',
+            'foto_produk' => 'image|file|max:1024|nullable',
         ]);
 
         if ($request->file('foto_produk')) {
@@ -68,6 +77,22 @@ class BarangController extends Controller
         DB::table('barang')->insert($validatedData);
         
         return redirect('/dashboard')->with('upSuccess', 'Penambahan Produk Berhasil!');
+    }
+
+    public function dashformTipe()
+    {
+        return view('dashformTipe');
+    }
+
+    public function inputformTipe(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nama_tipe' => 'required|max:40'
+        ]);
+
+        DB::table('tipe_produk')->insert($validatedData);
+        
+        return redirect('/dashtipe')->with('upSuccess', 'Penambahan Tipe Produk Berhasil!');
     }
 
     public function delete($id)
@@ -85,6 +110,19 @@ class BarangController extends Controller
             ->delete();
 
         return back()->with('delSuccess', 'Produk berhasil dihapus!');
+    }
+
+    public function deleteTipe($id)
+    {
+        $delTipe = DB::table('tipe_produk')
+            ->where('id_tipe', $id)
+            ->delete();
+
+        $delProduk = DB::table('barang')
+            ->where('tipe_produk', $id)
+            ->delete();
+
+        return back()->with('delSuccess', 'Tipe produk berhasil dihapus!');
     }
 
     public function dedit(Request $request)
@@ -158,6 +196,31 @@ class BarangController extends Controller
         }
 
 
-        return $this->dashboard();
+        return redirect('/dashtipe');
+    }
+
+    public function deditTipe(Request $request)
+    {
+        $tipes = DB::table('tipe_produk')
+            ->where('id_tipe', $request->id_tipe)
+            ->first();
+
+        return view('dasheditTipe', ['tipes' => $tipes]);
+    }
+
+    public function leditTipe(Request $request)
+    {
+        $validatedData = $request->validate([
+            'id_tipe' => 'required',
+            'nama_tipe' => 'required|max:40',
+        ]);
+
+        $insert = DB::table('tipe_produk')
+            ->where('id_tipe', $validatedData['id_tipe'])
+            ->update([
+                'nama_tipe' => $validatedData['nama_tipe'],
+            ]);
+
+        return redirect('/dashtipe')->with('upSuccess', 'Tipe Produk berhasil diperbarui!');
     }
 }

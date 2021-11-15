@@ -39,81 +39,52 @@
     		<br><br>
     		</div>
 
+    		@php
+    		$i = 1;
+    		@endphp
     		<form method="POST" action="menu">
     			@csrf
     			<div class="row">
-	        	<div class="col-md-6 mb-5 pb-3">
-	        		<h3 class="mb-5 heading-pricing ftco-animate">Kopi Rempek: Robusta </h3>
-							@php
-	        		$i = 1;
-	        		@endphp
-							@foreach ($barang1 as $data)
-	        		<div class="pricing-entry d-flex ftco-animate">
-	        			@if($data->foto_produk != null)
-	        			<div class="img" style="background-image: url({{$data->foto_produk}});"></div>
-	        			@else
-	        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
-	        			@endif
-	        			<div class="desc pl-3">
-		        			<div class="d-flex text align-items-center">
-		        				<h3><span>{{ ucwords($data->nama_produk) }}</span></h3>
-		        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
-		        			</div>
-		        			<div class="d-block">
-		        				<p>{{ $data->detail_komposisi }}</p>
-		        			</div>
+    				@foreach ($tipeA as $key => $tipeB) 
+              <div class="col-md-6 mb-5 pb-3">
+		        	<h3 class="mb-5 heading-pricing ftco-animate"> {{ $tipeB->nama_tipe }} </h3>
 
-		        			<div class="custom-control custom-checkbox">
-									  <input type="checkbox" name="ch{{$i}}" value="{{ $data->nama_produk }}" class="custom-control-input" id="customCheck{{$i}}">
-									  <label class="custom-control-label" for="customCheck{{$i}}">Beli produk ini</label>
-									</div>
+		            @foreach ($barang as $keyB => $data) 
+		                @if ($tipeB->id_tipe == $data->tipe_produk) 
+					        		<div class="pricing-entry d-flex ftco-animate">
+					        			@if($data->foto_produk != null)
+					        				<div class="img" style="background-image: url( {{ asset('storage/' . $data->foto_produk)  }} );"></div>
+					        			@else
+					        				<div class="img" style="background-image: url(https://images.unsplash.com/photo-1614350292382-c448d0110dfa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80);"></div>
+					        			@endif
 
-									@php
-									$i++;
-									@endphp
+					        			<div class="desc pl-3">
+						        			<div class="d-flex text align-items-center">
+						        				<h3><span>{{ ucwords($data->nama_produk) }}</span></h3>
+						        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
+						        			</div>
+						        			<div class="d-block">
+						        				<p>{{ $data->detail_komposisi }}</p>
+						        			</div>
 
-		        		</div>
-	        		</div>
-	        		@endforeach
-	        	</div>
+						        			<div class="custom-control custom-checkbox">
+													  <input type="checkbox" name="ch{{$i}}" value="{{ $data->nama_produk }}" class="custom-control-input" id="customCheck{{$i}}">
+													  <label class="custom-control-label" for="customCheck{{$i}}">Beli produk ini</label>
+													</div>
 
-	        	<div class="col-md-6 mb-5 pb-3">
-	        		<h3 class="mb-5 heading-pricing ftco-animate">Kopi Rempek: Arabika</h3>
-	        		@php
-	        		$i = 100;
-	        		@endphp
-	        		@foreach ($barang2 as $data)
-	        		<div class="pricing-entry d-flex ftco-animate">
-	        			@if($data->foto_produk != null)
-	        			<div class="img" style="background-image: url({{$data->foto_produk}});"></div>
-	        			@else
-	        			<div class="img" style="background-image: url(images/dish-5.jpg);"></div>
-	        			@endif
-	        			<div class="desc pl-3">
-		        			<div class="d-flex text align-items-center">
-		        				<h3><span>{{ ucwords($data->nama_produk) }}</span></h3>
-		        				<span class="price">RP{{ $data->harga_produk }}/{{ $data->ukuran_kemasan }}</span>
-		        			</div>
-		        			<div class="d-block">
-		        				<p>{{ $data->detail_komposisi }}</p>
-		        			</div>
+													@php
+													$i++;
+													@endphp
 
-		        			<div class="custom-control custom-checkbox">
-									  <input type="checkbox" name="ch{{$i}}" value="{{ $data->nama_produk }}" class="custom-control-input" id="customCheck{{$i}}">
-									  <label class="custom-control-label" for="customCheck{{$i}}">Beli produk ini</label>
-									</div>
+						        		</div>
+					        		</div>
+		                @endif
+		            @endforeach
+							</div>
+		        @endforeach
 
-									@php
-									$i++;
-									@endphp
-
-		        		</div>
-	        		</div>
-	        		@endforeach
-	        	</div>
-
-	        	<input type="submit" value="Hubungi Penjual" name="submit" class="btn btn-primary btn-lg mx-auto d-block ftco-animate">
 	        </div>
+	        <input type="submit" value="Hubungi Penjual" name="submit" class="btn btn-primary btn-lg mx-auto d-block ftco-animate">
     		</form>
         
     	</div>

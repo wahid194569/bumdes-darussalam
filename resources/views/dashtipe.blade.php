@@ -65,42 +65,30 @@
             <div class="card-body">
               <h5 class="card-title">Datatables</h5>
 
-              <a class="btn btn-primary" href="dashform">Tambah Produk</a>
+              <a class="btn btn-primary" href="dashformTipe">Tambah Tipe Produk</a>
 
               <!-- Table with stripped rows -->
               <table class="table datatable">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Tipe Produk</th>
-                    <th scope="col">Produk</th>
-                    <th scope="col">Detail</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Ukuran Kemasan</th>
+                    <th scope="col">TipeProduk</th>
                     <th scope="col">Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach($barang as $key=> $produk)
+                  @foreach($tipes as $key=> $tipe)
                   <tr>
                     <th scope="row">{{$key+=1}}</th>
-                    <td>{{$produk->nama_tipe}}</td>
-                    @if($produk->foto_produk)
-                    <td><img src=" {{ asset('storage/' . $produk->foto_produk) }} " style="width: 100px; object-fit: cover; border-radius: 50%;"> <br> {{$produk->nama_produk}}</td>
-                    @else
-                    <td><img src="https://images.unsplash.com/photo-1614350292382-c448d0110dfa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" style="width: 100px; object-fit: cover; border-radius: 50%;"> <br> {{$produk->nama_produk}}</td>
-                    @endif
-                    <td>{{$produk->detail_komposisi}}</td>
-                    <td>{{$produk->harga_produk}}</td>
-                    <td>{{$produk->ukuran_kemasan}}</td>
+                    <td>{{$tipe->nama_tipe}}</td>
                     <td>
-                      <form method="POST" action="dashedit">
+                      <form method="POST" action="dasheditTipe">
                         @csrf
-                        <input type="hidden" name="id" value="{{$produk->id}}">
+                        <input type="hidden" name="id_tipe" value="{{$tipe->id_tipe}}">
                         <a onclick="this.parentNode.submit();" style="color: blue;">Edit</a>
                       </form>
-                      |
-                      <a href="/delete/{{$produk->id}}" onclick="return confirm_delete()">Delete</a>
+                      
+                      <a href="/deleteTipe/{{$tipe->id_tipe}}" onclick="return confirm_delete()">Delete</a>
                     </td>
                   </tr>
                   @endforeach

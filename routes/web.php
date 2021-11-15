@@ -30,14 +30,23 @@ Route::get('/contact', function () {
 
 Route::get('/dashboard', [BarangController::class, 'dashboard'])->middleware('auth');
 
+Route::get('/dashtipe', [BarangController::class, 'dashtipe'])->middleware('auth');
+
 Route::get('/dashform', [BarangController::class, 'dashform'])->middleware('auth');
 Route::post('/dashform', [BarangController::class, 'inputform'])->middleware('auth');
 
+Route::get('/dashformTipe', [BarangController::class, 'dashformTipe'])->middleware('auth');
+Route::post('/dashformTipe', [BarangController::class, 'inputformTipe'])->middleware('auth');
+
 Route::get('/delete/{id}', [BarangController::class, 'delete'])->middleware('auth');
+Route::get('/deleteTipe/{id}', [BarangController::class, 'deleteTipe'])->middleware('auth');
 
 Route::post('/dashedit/', [BarangController::class, 'dedit'])->middleware('auth');
 Route::post('/dashledit/', [BarangController::class, 'ledit'])->middleware('auth');
 // Route::get('/dashedit/{id}', [BarangController::class, 'delete'])->middleware('auth');
+
+Route::post('/dasheditTipe/', [BarangController::class, 'deditTipe'])->middleware('auth');
+Route::post('/dashleditTipe/', [BarangController::class, 'leditTipe'])->middleware('auth');
 
 Route::get('login', [AdminController::class, 'login'])->name('login')->middleware('guest');
 Route::post('login', [AdminController::class, 'authenticate']);

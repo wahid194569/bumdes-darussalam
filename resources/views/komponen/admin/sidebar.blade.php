@@ -13,8 +13,8 @@
             </a>
           </li>
           <li>
-            <a href="dashform">
-              <i class="bi bi-circle"></i><span>Tambah Produk</span>
+            <a href="dashtipe">
+              <i class="bi bi-circle"></i><span>Tabel tipe</span>
             </a>
           </li>
         </ul>
