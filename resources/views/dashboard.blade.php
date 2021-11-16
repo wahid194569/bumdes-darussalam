@@ -86,7 +86,7 @@
                     <th scope="row">{{$key+=1}}</th>
                     <td>{{$produk->nama_tipe}}</td>
                     @if($produk->foto_produk)
-                    <td><img src=" {{ asset('storage/' . $produk->foto_produk) }} " style="width: 100px; object-fit: cover; border-radius: 50%;"> <br> {{$produk->nama_produk}}</td>
+                    <td><img src=" {{ asset('storage/' . $produk->foto_produk) }} " style="width: 100px; object-fit: cover; border-radius: 50%;"><br>{{$produk->nama_produk}}</td>
                     @else
                     <td><img src="https://images.unsplash.com/photo-1614350292382-c448d0110dfa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80" style="width: 100px; object-fit: cover; border-radius: 50%;"> <br> {{$produk->nama_produk}}</td>
                     @endif
